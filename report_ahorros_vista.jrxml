@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_ahorros_vista" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2510417b-dd7c-468a-9ce8-5f1dca54ba49">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.analytics.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="FORMATO" class="java.lang.String"/>
+	<parameter name="PARAM_FECHA_SIMULACION" class="java.lang.String"/>
+	<parameter name="PARAM_CAPITAL" class="java.lang.String"/>
+	<parameter name="PARAM_PLAZO" class="java.lang.String"/>
+	<parameter name="PARAM_TASA_REFERENCIAL_BCE" class="java.lang.String"/>
+	<parameter name="PARAM_TASA_NOMINAL_ANUAL" class="java.lang.String"/>
+	<parameter name="PARAM_TASA_EFECTIVA_ANUAL" class="java.lang.String"/>
+	<parameter name="PARAM_INTERES_GANADO" class="java.lang.String"/>
+	<parameter name="PARAM_AHORRO_TOTAL" class="java.lang.String"/>
+	<parameter name="REPORTE" class="java.lang.String"/>
+	<parameter name="ORIENTACION" class="java.lang.String">
+		<parameterDescription><![CDATA[Orientacion del reporte:
+V = Vertical
+H = Horizontal]]></parameterDescription>
+	</parameter>
+	<parameter name="PATH_REPORT" class="java.lang.String"/>
+	<parameter name="PATH_DETALLE_PRODUCTOS" class="java.lang.String"/>
+	<parameter name="PARAM_CALL_CENTER" class="java.lang.String"/>
+	<parameter name="PARAM_DESCRIPCION_VALOR_REFERENCIAL" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="89" splitType="Immediate">
+			<image scaleImage="FillFrame">
+				<reportElement x="2" y="0" width="551" height="36" uuid="8b3b3ab0-5e60-49c5-acc0-5309b34fb8bd"/>
+				<imageExpression><![CDATA[$P{PATH_REPORT}+"img/header-uno.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement x="180" y="39" width="178" height="26" uuid="fd37ca18-d284-4616-9a0e-3937ede6481a"/>
+				<imageExpression><![CDATA[$P{PATH_REPORT}+"img/header-dos.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="0" y="65" width="555" height="24" uuid="02b81f30-90bb-4945-b569-c72535379774">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<printWhenExpression><![CDATA[new Boolean($P{ORIENTACION}.toString().equalsIgnoreCase("V"))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font size="12" isBold="true" isStrikeThrough="false" pdfFontName="Helvetica-Bold"/>
+				</textElement>
+				<textFieldExpression><![CDATA["<style size='11'>" + $P{REPORTE}.toUpperCase() + "</style>"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="-19" y="-20" width="592" height="23" uuid="ee87b5ce-cdb1-4528-bf29-e2dd789b2f94"/>
+				<imageExpression><![CDATA[$P{PATH_REPORT}+"img/cenefa-superior.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="249" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="257" height="21" uuid="d3fdb022-ce70-430c-ad9c-a734f0982125"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de la Simulación]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="10" width="263" height="21" uuid="990ca312-146e-449c-9383-b1ed251a3182"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_FECHA_SIMULACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="157" width="257" height="21" uuid="2d9e2713-bf48-48bd-9e97-5a0cd94f8637"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ahorro Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="31" width="263" height="21" uuid="2d0d99e7-ce31-47fc-aa16-1bcb15ac2e2f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_CAPITAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="73" width="263" height="21" uuid="36af49c0-6a71-4406-9daf-381e3700e0f7"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_TASA_REFERENCIAL_BCE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="136" width="257" height="21" uuid="373ec1bc-44b2-494e-ad33-329dbf74314f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Interés Ganado **]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="52" width="257" height="21" uuid="ca71da73-1b4e-4c3a-881d-0d5ddd6ad4ea"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Plazo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="31" width="257" height="21" uuid="65c7d7bb-4162-41c1-8ff2-76d049bd70b9"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Capital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="115" width="257" height="21" uuid="df16fea3-3697-40a6-8d40-2fa80a0ea5fa"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tasa Efectiva Anual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="73" width="257" height="21" uuid="d8979aa9-d1c2-4c05-89e1-de576eeb2bbd"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tasa Referencial BCE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="94" width="263" height="21" uuid="37efc443-73bb-41b9-8fa0-1209d0191a87"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_TASA_NOMINAL_ANUAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="136" width="263" height="21" uuid="23ae92b5-875a-4d07-8c73-c443462151af"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_INTERES_GANADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="94" width="257" height="21" uuid="d5e16c00-7bc7-4d76-9976-95e55bc685f8"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tasa Nominal Anual *]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="52" width="263" height="21" uuid="dbfcea87-f7e1-4acd-843b-2fbbed833120"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_PLAZO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="115" width="263" height="21" uuid="b5b0a9eb-f7f1-45e4-9dd0-267ef80b1d4d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_TASA_EFECTIVA_ANUAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="157" width="263" height="21" uuid="c8c31d9d-fb4d-433e-aafa-99979a71b0e5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{PARAM_AHORRO_TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="210" width="70" height="15" uuid="d6850e16-20bc-49ac-864d-9c1e8f406628"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importante]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="228" width="462" height="20" uuid="fc5ba784-0536-42ae-9952-7da3ade4bdc6"/>
+				<textElement verticalAlignment="Middle" markup="html"/>
+				<textFieldExpression><![CDATA[$P{PARAM_CALL_CENTER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="181" width="318" height="29" uuid="367c79ee-bda8-4713-9e11-8d3d55dc4a73"/>
+				<textElement textAlignment="Center" markup="html"/>
+				<textFieldExpression><![CDATA[$P{PARAM_DESCRIPCION_VALOR_REFERENCIAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnFooter>
+		<band height="351" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="5" width="548" height="272" uuid="f45b9858-de05-4a78-8038-0b4fadae121d"/>
+				<textElement textAlignment="Justified" markup="html"/>
+				<textFieldExpression><![CDATA[$P{PATH_DETALLE_PRODUCTOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="317" width="232" height="30" uuid="f2e3ea01-fabe-4ba1-8837-2b97954142b4"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Mi Ahorro Chanchito a mediano plazo Mi Ahorro Chanchito a largo plazo"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="317" width="316" height="30" uuid="e3144bcb-e34d-4383-8abe-855c23965c08"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA["Se podrá dar por finalizado hasta dos meses antes del plazo definido en el contrato"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="287" width="232" height="30" uuid="ffb88d3b-1d59-4cca-a479-16542e945344"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Mi Ahorro Chanchito a corto plazo (7-12 meses)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="234" y="287" width="316" height="30" uuid="faaae255-b34a-4ee8-8396-fbb713d15a18"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA["Se podrá dar por finalizado hasta un mes antes del plazo definido en el contrato, siempre y cuando cumpla con el ahorro meta"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="109" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="553" height="57" uuid="db2d749c-b8ab-4abb-b9ed-3c8e95e3671c"/>
+				<imageExpression><![CDATA[$P{PATH_REPORT}+"img/footer.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="2" y="58" width="552" height="30" uuid="6b542ba9-d245-40b3-b048-942487185f0a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[DOMICILIO: Benigno Malo 9 -75 entre Gran Colombia y Simón Bolívar / Teléfono PBX : 07 2 833 255 / Cuenca - Ecuador]]></text>
+			</staticText>
+			<image>
+				<reportElement x="168" y="89" width="190" height="20" uuid="250fb4e5-93e4-4ec7-9a3d-510acc785bd4"/>
+				<imageExpression><![CDATA[$P{PATH_REPORT}+"img/url-ja.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="60" splitType="Stretch"/>
+	</summary>
+</jasperReport>
